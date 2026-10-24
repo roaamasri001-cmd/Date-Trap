@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>وزارة الطلعات والشؤون العاطفية 💌</title>
     <style>
         body {
@@ -16,6 +16,8 @@
             overflow: hidden;
             flex-direction: column;
             text-align: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .container {
             background-color: white;
@@ -26,6 +28,7 @@
             width: 90%;
             position: relative;
             border: 1px solid #ffd1d1;
+            box-sizing: border-radius;
         }
         .dept-title {
             font-size: 14px;
@@ -57,7 +60,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             position: relative;
-            height: 130px;
+            height: 140px;
         }
         .btn {
             background-color: #ff4d6d;
@@ -69,19 +72,19 @@
             cursor: pointer;
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(255, 77, 109, 0.2);
-            transition: background-color 0.2s;
+            touch-action: none;
         }
         .btn:hover {
             background-color: #ff758f;
         }
-        /* الأزرار الهاربة تحتفظ بنفس حجمها دائماً بدون تكبير أو تغيير */
+        /* الأزرار الهاربة تحتفظ بحجمها الثابت دائماً ولا تختفي */
         .evade {
-            position: absolute;
-            z-index: 999;
-            width: 140px;
-            height: auto;
+            position: fixed;
+            z-index: 9999;
+            width: 130px;
+            height: 48px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: left 0.1s ease-out, top 0.1s ease-out !important;
+            transition: left 0.1s ease-out, top 0.1s ease-out;
         }
         .step {
             display: none;
@@ -120,9 +123,9 @@
         <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
         <p>بما إنو حابب دللك ونطلع سوا.. أيمتى حابة تكون طلعتنا؟</p>
         <div class="buttons-grid">
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">اثنين</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">ثلاثاء</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">أربعاء</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">اثنين</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">ثلاثاء</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">أربعاء</button>
             <button class="btn" onclick="nextStep(1)">خميس</button>
         </div>
     </div>
@@ -135,9 +138,9 @@
         <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
         <p>تم تحديد اليوم بنجاح! طيب وين حابة آخدك؟</p>
         <div class="buttons-grid">
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">مطعم</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">سينما</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">حديقة</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">مطعم</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">سينما</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">حديقة</button>
             <button class="btn" onclick="nextStep(2)">مكاننا الخاص</button>
         </div>
     </div>
@@ -150,10 +153,10 @@
         <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
         <p>أحلى اختيار بالدنيا! طيب شو حابة ناكل هنيك؟</p>
         <div class="buttons-grid">
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">شاورما</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">سوشي</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">شاورما</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">سوشي</button>
             <button class="btn" onclick="nextStep(3)">بيتزا</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">برغر</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">برغر</button>
         </div>
     </div>
 
@@ -163,11 +166,11 @@
         <div class="bear-heart">🧸❤️</div>
         <h1>وزارة الطلعات والشؤون العاطفية</h1>
         <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
-        <p>آخر خطوة لتأكيد المعاملة العاطفية، أيمتى نلتقي وتكوني جاهزة؟</p>
+        <p>آخر خطوة لتأكيد المعاملة العاطفية، أيمتى نلتقي وتكوني جاهزة？</p>
         <div class="buttons-grid">
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">14:00</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">15:00</button>
-            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">16:00</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">14:00</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">15:00</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" ontouchstart="evadeTouch(event, this)">16:00</button>
             <button class="btn" onclick="nextStep(4)">17:00</button>
         </div>
     </div>
@@ -182,12 +185,23 @@
     </div>
 
     <script>
+        // دالة الهروب لأجهزة اللمس (الجوالات) لمنع الاختيار الخاطئ نهائياً
+        function evadeTouch(event, button) {
+            event.preventDefault(); // منع المتصفح من محاكاة الضغطة العادية واختيار الزر تلقائياً
+            moveButton(button);
+        }
+
+        // دالة الهروب للماوس (الكمبيوتر)
         function evade(button) {
+            moveButton(button);
+        }
+
+        // تحريك الزر العشوائي الذكي داخل حدود الشاشة
+        function moveButton(button) {
             button.classList.add('evade');
             
-            // حساب أبعاد الشاشة لمنع خروج الأزرار عنها
-            const maxX = window.innerWidth - button.offsetWidth - 30;
-            const maxY = window.innerHeight - button.offsetHeight - 30;
+            const maxX = window.innerWidth - button.offsetWidth - 20;
+            const maxY = window.innerHeight - button.offsetHeight - 20;
             
             let randomX = Math.floor(Math.random() * maxX);
             let randomY = Math.floor(Math.random() * maxY);
@@ -199,7 +213,16 @@
             button.style.top = randomY + 'px';
         }
 
+        // الانتقال للسؤال التالي
         function nextStep(currentStep) {
+            // إزالة الأزرار التي هربت وتطايرت في الشاشة لتنظيف الصفحة للمرحلة التالية
+            const coordinates = document.querySelectorAll('.evade-btn');
+            coordinates.forEach(btn => {
+                btn.classList.remove('evade');
+                btn.style.left = '';
+                btn.style.top = '';
+            });
+
             document.getElementById('step' + currentStep).classList.remove('active');
             document.getElementById('step' + (currentStep + 1)).classList.add('active');
         }
