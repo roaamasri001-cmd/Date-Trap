@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وزارة الطلعات والشؤون العاطفية 💌</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            border: 1px solid #ffd1d1;
+        }
+        .dept-title {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: #ff85a2;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+        p {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            position: relative;
+            height: 130px;
+        }
+        .btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.2);
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #ff758f;
+        }
+        /* الأزرار الهاربة تحتفظ بنفس حجمها دائماً بدون تكبير أو تغيير */
+        .evade {
+            position: absolute;
+            z-index: 999;
+            width: 140px;
+            height: auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: left 0.1s ease-out, top 0.1s ease-out !important;
+        }
+        .step {
+            display: none;
+        }
+        .active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .bear-heart {
+            font-size: 55px;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        b {
+            color: #ff4d6d;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- السؤال الأول: الأيام -->
+    <div class="container step active" id="step1">
+        <div class="dept-title">DEPARTMENT OF LOVE</div>
+        <div class="bear-heart">🧸❤️</div>
+        <h1>وزارة الطلعات والشؤون العاطفية</h1>
+        <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
+        <p>بما إنو حابب دللك ونطلع سوا.. أيمتى حابة تكون طلعتنا؟</p>
+        <div class="buttons-grid">
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">اثنين</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">ثلاثاء</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">أربعاء</button>
+            <button class="btn" onclick="nextStep(1)">خميس</button>
+        </div>
+    </div>
+
+    <!-- السؤال الثاني: المكان -->
+    <div class="container step" id="step2">
+        <div class="dept-title">DEPARTMENT OF LOVE</div>
+        <div class="bear-heart">🧸❤️</div>
+        <h1>وزارة الطلعات والشؤون العاطفية</h1>
+        <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
+        <p>تم تحديد اليوم بنجاح! طيب وين حابة آخدك؟</p>
+        <div class="buttons-grid">
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">مطعم</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">سينما</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">حديقة</button>
+            <button class="btn" onclick="nextStep(2)">مكاننا الخاص</button>
+        </div>
+    </div>
+
+    <!-- السؤال الثالث: الأكل -->
+    <div class="container step" id="step3">
+        <div class="dept-title">DEPARTMENT OF LOVE</div>
+        <div class="bear-heart">🧸❤️</div>
+        <h1>وزارة الطلعات والشؤون العاطفية</h1>
+        <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
+        <p>أحلى اختيار بالدنيا! طيب شو حابة ناكل هنيك؟</p>
+        <div class="buttons-grid">
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">شاورما</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">سوشي</button>
+            <button class="btn" onclick="nextStep(3)">بيتزا</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">برغر</button>
+        </div>
+    </div>
+
+    <!-- السؤال الرابع: الوقت -->
+    <div class="container step" id="step4">
+        <div class="dept-title">DEPARTMENT OF LOVE</div>
+        <div class="bear-heart">🧸❤️</div>
+        <h1>وزارة الطلعات والشؤون العاطفية</h1>
+        <div class="subtitle">صُنع بحب… وشوية تحكّم ♡</div>
+        <p>آخر خطوة لتأكيد المعاملة العاطفية، أيمتى نلتقي وتكوني جاهزة؟</p>
+        <div class="buttons-grid">
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">14:00</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">15:00</button>
+            <button class="btn evade-btn" onmouseover="evade(this)" onclick="evade(this)" ontouchstart="evade(this)">16:00</button>
+            <button class="btn" onclick="nextStep(4)">17:00</button>
+        </div>
+    </div>
+
+    <!-- شاشة النجاح النهائية -->
+    <div class="container step" id="step5">
+        <div class="dept-title">DEPARTMENT OF LOVE</div>
+        <div class="bear-heart">💝✨</div>
+        <h1>تم صدور القرار الرسمي!</h1>
+        <div class="subtitle">وزارة الطلعات والشؤون العاطفية 💌</div>
+        <p>بناءً على الصلاحيات الممنوحة واختياراتك المفضلة، تقرر التقيّد بالميعاد التالي:<br><br>نلتقي يوم <b>الخميس</b> في <b>مكاننا الخاص</b> على أحلى <b>بيتزا</b> الساعة <b>17:00</b> تماماً.<br><br>الرجاء الحضور بكامل أناقتك وبدون تأخير، ناطرك 😉 الحساب حُسم!</p>
+    </div>
+
+    <script>
+        function evade(button) {
+            button.classList.add('evade');
+            
+            // حساب أبعاد الشاشة لمنع خروج الأزرار عنها
+            const maxX = window.innerWidth - button.offsetWidth - 30;
+            const maxY = window.innerHeight - button.offsetHeight - 30;
+            
+            let randomX = Math.floor(Math.random() * maxX);
+            let randomY = Math.floor(Math.random() * maxY);
+            
+            if (randomX < 20) randomX = 20;
+            if (randomY < 20) randomY = 20;
+            
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        function nextStep(currentStep) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + (currentStep + 1)).classList.add('active');
+        }
+    </script>
+</body>
+</html>
